@@ -1,0 +1,56 @@
+extends base 
+
+block content
+    h1.title Create Listing
+
+    .form-container
+        form(action="/create" method="POST")
+            // Title Input
+            .form-group
+                label(for="title") Title:
+                input#title(type="text" name="title" placeholder="Listing Title" required)
+
+            // Image URL Input
+            .form-group
+                label(for="image_url") Image URL:
+                input#image_url(type="text" name="image_url" placeholder="https://example.com/image.jpg" required)
+
+            // Description Input
+            .form-group
+                label(for="description") Description:
+                textarea#description(name="description" placeholder="Create an awesome description here" required)
+
+            // Category Selection
+            .form-group
+                label(for="category") Category:
+                select#category.large-dropdown(name="category")
+                    option(value="PS1") PlayStation
+                    option(value="PS2") PlayStation 2
+                    option(value="SNES") Super Nintendo
+                    option(value="XBOX360") Xbox 360
+                    option(value="Other") Other Console
+
+            // Optional Other Category
+            #other-category-group.form-group(style="display: none;")
+                label(for="other-category") Other Category:
+                input#other-category(type="text" name="other_category" placeholder="Enter other console")
+
+            // Sale End Date Input
+            .form-group
+                label(for="sale-end-date") Sale End Date:
+                p.info-text 
+                    em You can only pick dates at least 
+                    strong a day ahead 
+                    | from today
+                input#sale-end-date(
+                    type="date" 
+                    name="sale_end_date" 
+                    required
+                    min=`${new Date(Date.now() + 86400000).toISOString().split('T')[0]}` 
+                    )
+
+
+            // Submit Button
+            button.create-button(type="submit") Create
+
+    script(src="/js/new_listing.js")

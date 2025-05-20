@@ -1,0 +1,40 @@
+extends base
+
+block content 
+    // Page Title
+    h1.title Gallery
+
+    // Gallery Table
+    .gallery-wrapper
+        section.gallery
+            table.auction-table
+                thead
+                    tr
+                        th Listing
+                        th Console
+                        th Number of Bids
+                        th Bids
+                        th Top Bid
+                        th Sale Ends
+                        th Auction Ends
+                tbody
+                    // Dynamically render rows here
+                    each item in listings
+                        // Makes the whole row clickable
+                        tr(
+                            onclick=`window.location='/listing/${item.id}'`
+                            data-image=item.image_url
+                            data-description=item.description
+                            data-listing-id=item.id
+                        ) 
+                            td
+                                a(href=`/listing/${item.id}`) #{item.title}
+                            td #{item.category}
+                            td #{item.bids.length}  
+                            td $#{item.topBid || 0}  
+                            td #{new Date(item.sale_end_date).toLocaleDateString({ year: 'numeric', month: '2-digit', day: '2-digit' })}
+                            td.auction-end-time(onclick=`window.location='/listing/${item.id}'` data-end-date=item.sale_end_date)
+
+        .gallery-preview(id="preview")
+
+    script(src="/js/table.js")

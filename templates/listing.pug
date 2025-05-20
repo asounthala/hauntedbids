@@ -1,0 +1,37 @@
+extends base
+
+include mixins.pug
+
+block content
+    h1.title #{listing.title}
+    .content-container
+        .listing-info
+            // Image and Description
+            img.listing-image(src=listing.image_url alt=listing.title)
+            p.listing-description-box #{listing.description}
+
+        // Bids Section
+        .bids-section
+            .bids-header
+                h2 Bids
+                if listing.remaining_time == 0
+                    button.auction-status-btn.disabled Auction Ended
+                else
+                    button.auction-status-btn Place Bid
+
+            // New Bid Form
+            form#bid-form(style="display:none" method="POST" action="/place_bid")
+                input(type="hidden" name="listing_id" value=listing.id)
+                label(for="bidder-name") Your Name:
+                input#bidder-name(type="text" name="bidder_name" required value=bidder_name)
+                label(for="bid-amount") Bid Amount:
+                input#bid-amount(type="number" name="bid_amount" step="5.00" required placeholder="+$5")
+                label(for="comment") Comment (optional):
+                textarea#comment(name="comment")
+                button(type="submit") Bid
+
+            // Display Existing Bids
+            each bid in listing.bids
+                +bidCard(bid)
+                
+    script(src="/js/bid.js")

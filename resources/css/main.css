@@ -1,0 +1,463 @@
+/* ------------------------- Font Imports ------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund&display=swap");
+
+/* ------------------------- Variables ------------------------- */
+:root {
+	--primary-color: #8b0000;
+	--secondary-color: #696969;
+	--background-color: black;
+	--text-color: #d3d3d3;
+	--font-family: "Josefin Sans", sans-serif;
+	--border-radius: 5px;
+	--transition-time: 0.3s;
+}
+
+/* ------------------------- Global Styles ------------------------- */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--font-family);
+	background-color: var(--background-color);
+	color: var(--text-color);
+	line-height: 1.6;
+}
+
+/* ------------------------- Navigation ------------------------- */
+nav {
+	background-color: #1c1c1c;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px;
+}
+
+nav ul {
+	display: flex;
+	list-style: none;
+	gap: 30px;
+	margin-top: 5px;
+}
+
+nav a {
+	text-decoration: none;
+	padding: 10px 15px;
+	color: var(--text-color);
+	border-radius: var(--border-radius);
+	transition: var(--transition-time);
+	background-color: #8a8888;
+	color: white;
+}
+
+nav a:hover {
+	background-color: var(--primary-color);
+	color: white;
+}
+
+.search-form {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.search-form input,
+.search-form select {
+	padding: 10px;
+	border-radius: var(--border-radius);
+	border: 1px solid var(--text-color);
+}
+
+.search-form button {
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	font-size: medium;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.search-form button:hover {
+	background-color: var(--primary-color);
+	color: white;
+}
+
+/* ------------------------- Title Section ------------------------- */
+.title {
+	text-align: center;
+	margin: 40px 0;
+}
+
+.title h1 {
+	font-size: 3rem;
+}
+
+.title h2 {
+	color: #cccccc;
+	font-style: italic;
+}
+
+/* ------------------------- About Us ------------------------- */
+.about-us {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	padding: 20px;
+}
+
+.about-us img {
+	width: 600px;
+	height: 400px;
+	border: 5px solid white;
+	border-radius: var(--border-radius);
+	width: 100%;
+	margin-left: 50px;
+}
+
+.description {
+	width: 600px;
+	height: 400px;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: #303030;
+	overflow: auto;
+	margin-left: auto; /* Pushes the box to the right */
+	margin-right: 50px; /* Adds some space between the box and the right edge */
+	color: #d3d3d3;
+	font-size: 20px;
+	box-shadow: 5px 5px 70px rgb(229, 0, 0);
+}
+
+.description ul {
+	list-style: none;
+	text-align: center;
+}
+
+/* ------------------------- Gallery ------------------------- */
+.gallery-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+}
+
+section.gallery {
+	padding: 20px;
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #ffffff19;
+	border-radius: 8px;
+	box-shadow: 5px 5px 70px rgb(63, 20, 255);
+}
+
+table.auction-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+
+table.auction-table thead {
+	background-color: #444444;
+	color: white;
+}
+
+table.auction-table th {
+	padding: 10px;
+	text-align: left;
+	font-weight: bold;
+}
+
+table.auction-table td {
+	padding: 10px;
+	text-align: left;
+}
+
+table.auction-table td a {
+	text-decoration: none;
+}
+
+table.auction-table tbody tr:nth-child(odd) {
+	background-color: black;
+	color: white;
+}
+
+table.auction-table tbody tr:nth-child(even) {
+	background-color: white;
+	color: black;
+}
+
+table.auction-table tbody tr:hover {
+	background-color: #430000;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+table.auction-table tbody tr:nth-child(even):hover {
+	background-color: #430000;
+	color: white;
+	cursor: pointer;
+}
+
+/* Preview Card */
+.gallery-preview {
+    width: 300px;
+    min-height: 200px; 
+    background-color: #1c1c1c;
+    color: #d3d3d3;
+    border-radius: 8px;
+    padding: 15px;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    margin-right: 5%;
+}
+
+.preview-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.preview-image {
+    width: 250px; 
+    height: 250px; 
+    object-fit: cover; 
+    border-radius: 8px;
+    border: 2px solid white;
+}
+
+.preview-description {
+    font-size: 15px;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.delete-button {
+    background-color: #8b0000;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+	text-align: center;
+	font-weight: bolder;
+}
+
+.delete-button:hover {
+    background-color: #bc0000;
+}
+
+/* ------------------------- Listing ------------------------- */
+
+/* Listing Info */
+.content-container {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.listing-info {
+	display: flex;
+	flex-direction: column;
+	align-items: first baseline;
+	gap: 20px;
+	padding: 20px;
+	margin-left: 20%;
+}
+
+.listing-image-wrapper {
+	text-align: center;
+}
+
+.listing-image {
+	width: 300px;
+	height: auto;
+	border-radius: 8px;
+}
+
+.listing-description-box {
+	max-width: 300px;
+	background-color: #1d1d1d;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: justify;
+}
+
+/* Bid Info */
+.bids-section {
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+}
+
+.bids-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.auction-status-btn {
+	padding: 10px 30px;
+	font-size: 1rem;
+	background-color: #540000;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	font-weight: bolder;
+}
+
+.bids-header h2 {
+	margin-top: 0;
+}
+
+.auction-status-btn.disabled {
+	background-color: gray;
+	cursor: not-allowed;
+}
+
+.auction-status-btn:not(.disabled):hover {
+	background-color: #bc0000;
+	transition: background-color 0.3s;
+}
+
+/* Bid Card */
+.bid-card {
+	width: 100%;
+	background-color: #8b0000;
+	color: #fff;
+	padding: 15px;
+	margin: 10px 0;
+	border-radius: 8px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+.bidder-name {
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+.bid-amount {
+	font-size: 1.2rem;
+	color: #ffd700;
+	margin-left: auto;
+}
+
+.bid-comment {
+	font-style: italic;
+	margin-top: 5px;
+	width: 100%;
+	text-align: left;
+}
+
+#bid-form button {
+	background-color: #540000;
+	color: white;
+	border: none;
+	padding: 8px;
+	width: 5rem;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight: bolder;
+}
+
+#bid-form button:hover {
+	background-color: #a00000;
+	cursor: pointer;
+}
+
+/* ------------------------- Create Listing ------------------------- */
+
+/* Form Container */
+.form-container {
+	max-width: 600px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #1c1c1c;
+	border-radius: var(--border-radius);
+	box-shadow: 5px 5px 60px rgba(255, 255, 255, 0.99);
+}
+
+/* Form Group */
+.form-group {
+	margin-bottom: 15px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+input,
+textarea,
+select {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid var(--secondary-color);
+	border-radius: var(--border-radius);
+	background-color: #2c2c2c;
+	color: white;
+}
+
+/* Submit Button */
+button.create-button {
+	width: 100%;
+	padding: 10px;
+	font-size: 1rem;
+	font-weight: bold;
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	transition: background-color var(--transition-time);
+}
+
+button.create-button:hover {
+	background-color: #a00000;
+}
+
+/* Info Text */
+.info-text {
+	font-size: 0.9rem;
+	color: var(--text-color);
+	margin-top: 5px;
+}
+
+/* ------------------------- 404 ------------------------- */
+
+.basic-container {
+	display: flex;
+	flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------------- Footer ------------------------- */
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	padding: 10px 0;
+	background-color: #1c1c1c;
+	color: #aaaaaa;
+	font-size: 0.9rem;
+}

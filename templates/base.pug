@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title #{title}  
+    link(rel="stylesheet" href="/css/main.css")  
+    block extraHead  
+
+  body
+    header
+      nav.main-nav
+        ul
+          li: a(href="/") Home
+          li: a(href="/gallery") Gallery
+          li: a(href="/create") Create a Listing
+        form.search-form(action="/gallery" method="GET")
+          input(type="text" name="query" placeholder="Search for a game")
+          select(name="category")
+            option(value="ALL") All Consoles
+            option(value="PS1") PlayStation
+            option(value="PS2") PlayStation 2
+            option(value="SNES") Super Nintendo
+            option(value="XBOX360") Xbox 360
+          button(type="submit") Search
+
+    main
+      block content  
+
+    footer
+      p &copy; #{new Date().getFullYear()} Haunted Bids. All Rights Reserved.
+      block extraFooter  

@@ -1,0 +1,7 @@
+mixin bidCard(bid)
+    .bid-card
+        p.bidder-name #{bid.bidder_name}
+        p.bid-amount $#{bid.bid_amount.toFixed(2)}
+        if bid.comment
+            p.bid-comment #{bid.comment}
+
